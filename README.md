@@ -3,6 +3,27 @@
 ## [Forward Kinematics](https://www.rosroboticslearning.com/forward-kinematics)
 Forward kinematics computes the position and orientation of the end effector given the joint parameters (angles or displacements). The Denavit-Hartenberg (DH) convention is often used to simplify the modeling of robotic arms.
 
+- `Links`: Links are rigid bodies that gives structure to the robot.
+- `Joints`: Joints are the movable parts(actuators) of the robots that connects the links of the robot. Joints cause relative motion between adjacent links.
+- `Kinematic chains`:  Kinematic chain is the assembly of links connected by joints to produce a desired motion. Human arm is an example of a kinematic chain. Human body is a group of kinematic chains connected in series.
+- `Degree of Freedom (DOF)`: Degree of freedom in robotic is simply the total number of independent joints which can change the  pose of the robot. If you take a human arm from shoulder to palm (fingers not included), arm has 7 DOF. Try to identify the joints yourself.
+- `End-Effector`: End-effector is the last link of the robot arm or manipulator that interacts with the environment. The last link can be gripper tool to do pick and place actions or a welding gun or simply a magnet.
+- `Workspace`:  Workspace is the space in which your robot can work i.e., all reachable points by the robot's endeffector constitutes to workspace. 
+- `Joint parameters`: Joint parameters is nothing but the state value of the joint. This state value depends on the type of the Joint.
+
+
+`Type of Joints`: Most commonly used joints in robotics are revolute joint, prismatic joint and continuous joint.
+- `Revolute` : a hinge joint that rotates along the axis and has a limited range specified by the upper and lower limits. Units: radians or degrees.
+- `Prismatic` : a sliding joint that slides along the axis, and has a limited range specified by the upper and lower limits. Units: meters
+- `Continuous` : a continuous hinge joint that rotates around the axis and has no upper and lower limits. Units: radians/sec or degrees/sec.
+
+![image](https://static.wixstatic.com/media/407007_dc4c817cf5a645cfbebd988a2cf0f30d~mv2.png/v1/fill/w_414,h_354,al_c,q_85,enc_auto/407007_dc4c817cf5a645cfbebd988a2cf0f30d~mv2.png)
+
+Attach the frame to the links:
+
+![image](https://static.wixstatic.com/media/407007_82df530b064a4e96bce962d13d3dfcf4~mv2.png/v1/fill/w_429,h_385,al_c,q_85,enc_auto/407007_82df530b064a4e96bce962d13d3dfcf4~mv2.png)
+
+
 ### Denavit-Hartenberg Parameters
 For each joint 𝑖, define the following parameters:
 - 𝜃𝑖 : Joint angle (rotation about the Z-axis)
