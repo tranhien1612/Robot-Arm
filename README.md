@@ -97,3 +97,76 @@ int main() {
 }
 
 ```
+
+Using Lib
+
+```
+#include <iostream>
+#include <kdl/chain.hpp>
+#include <kdl/chainiksolver_pos_lma.hpp>
+#include <kdl/chainfksolver_pos_recursive.hpp>
+#include <kdl/frames.hpp>
+#include <kdl/jntarray.hpp>
+#include <Eigen/Dense>
+
+using namespace std;
+using namespace KDL;
+
+int main() {
+    // Define the robot's kinematic chain (6 joints)
+    Chain chain;
+
+    // Define the DH parameters for each joint (example values)
+    // Joint 1
+    chain.addSegment(Segment(Joint(Joint::RotZ), 
+        Frame(Vector(0, 0, 0)), 
+        Rot::RotZ(0)));
+    
+    // Joint 2
+    chain.addSegment(Segment(Joint(Joint::RotZ), 
+        Frame(Vector(0, 0, 1)), 
+        Rot::RotZ(0)));
+    
+    // Joint 3
+    chain.addSegment(Segment(Joint(Joint::RotZ), 
+        Frame(Vector(0, 0, 1)), 
+        Rot::RotZ(0)));
+
+    // Joint 4
+    chain.addSegment(Segment(Joint(Joint::RotZ), 
+        Frame(Vector(0, 0, 1)), 
+        Rot::RotZ(0)));
+
+    // Joint 5
+    chain.addSegment(Segment(Joint(Joint::RotZ), 
+        Frame(Vector(0, 0, 1)), 
+        Rot::RotZ(0)));
+
+    // Joint 6
+    chain.addSegment(Segment(Joint(Joint::RotZ), 
+        Frame(Vector(0, 0, 1)), 
+        Rot::RotZ(0)));
+
+    // Initialize joint positions
+    JntArray joint_positions(chain.getNrOfJoints());
+    joint_positions(0) = M_PI / 4; // Joint 1
+    joint_positions(1) = M_PI / 4; // Joint 2
+    joint_positions(2) = 0;        // Joint 3
+    joint_positions(3) = 0;        // Joint 4
+    joint_positions(4) = 0;        // Joint 5
+    joint_positions(5) = 0;        // Joint 6
+
+    // Compute forward kinematics
+    Frame end_effector_frame;
+    ChainFkSolverPos_recursive fk_solver(chain);
+    if (fk_solver.JntToCart(joint_positions, end_effector_frame) >= 0) {
+        cout << "End effector position: " << end_effector_frame.p.x() << ", "
+             << end_effector_frame.p.y() << ", "
+             << end_effector_frame.p.z() << endl;
+    } else {
+        cout << "Error in forward kinematics calculation!" << endl;
+    }
+
+    return 0;
+}
+```
