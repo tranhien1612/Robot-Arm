@@ -12,7 +12,7 @@
 
 `DH Parameter`s: Replace the d, a, and alpha vectors with your robot's actual parameters.
 
-`Matrix Operations`: This implementation uses basic matrix multiplication. For better performance, especially in robotics, consider using libraries like Eigen or Armadillo.
+`Matrix Operations`: This implementation uses basic matrix multiplication. For better performance, especially in robotics, consider using libraries like [Eigen](https://gitlab.com/libeigen/eigen) or Armadillo.
 
 ## Example
 
@@ -170,3 +170,5 @@ int main() {
     return 0;
 }
 ```
+Replace the DH parameters in the Frame and Segment definitions according to your robot's specifications.
+
