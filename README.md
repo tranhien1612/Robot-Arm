@@ -39,7 +39,7 @@ Rotation Matrix: The rotation matrix for rotating a point by an angle θ (in rad
 Combining Translation and Rotation
 To apply both translation and rotation to a point, you can multiply the transformation matrices. If you want to rotate and then translate, you first apply the rotation and then the translation:
 ```
-    P= T . R
+    P = T . R
 ```
  
 ### Denavit-Hartenberg Parameters
