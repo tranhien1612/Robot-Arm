@@ -48,13 +48,11 @@ Rotation around X-axis:
 
 In homogeneous coordinates, the full transformation matrix becomes:
 ```
-            [ cosθ -sinθcosα  sinθcosα  a.cosθ ]
-        T = [ sinθ  cosθcosα  -cosθsinα a.sinθ ]
-            [  0     sinα      cosα       d    ]
-            [  0       0        0         1    ]
+            [ cos(θ𝑖) -sin(θ𝑖)cos(α𝑖)  sin(θ𝑖)cos(α𝑖)  (a𝑖).cos(θ𝑖) ]
+        T = [ sin(θ𝑖)  cos(θ𝑖)cos(α𝑖)  -cos(θ𝑖)sin(α𝑖) (a𝑖).sin(θ𝑖) ]
+            [  0        sin(α𝑖)          cos(α𝑖)          d𝑖      ]
+            [  0          0                0             1      ]
 ```
- 
-### Denavit-Hartenberg Parameters
 For each joint 𝑖, define the following parameters:
 - 𝜃𝑖 : Joint angle (rotation about the Z-axis)
 - 𝑑𝑖 : Link offset (translation along the Z-axis)
