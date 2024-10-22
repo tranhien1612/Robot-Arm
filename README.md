@@ -24,22 +24,34 @@ Attach the frame to the links:
 ![image](https://static.wixstatic.com/media/407007_82df530b064a4e96bce962d13d3dfcf4~mv2.png/v1/fill/w_429,h_385,al_c,q_85,enc_auto/407007_82df530b064a4e96bce962d13d3dfcf4~mv2.png)
 
 ### Translation and Rotation Matrices
-Translation Matrix: The translation matrix for moving a point in 2D space by (tx,ty) is given by:
+Translation Matrix
 ```
-        [ 1 0 tx ]
-    T = [ 0 1 ty ]
-        [ 0 0 1  ]
+        [ 1 0 tx a ]
+    T = [ 0 1 ty d ]
+        [ 0 0 1  0 ]
+        [ 0 0 0  1 ]
 ```
-Rotation Matrix: The rotation matrix for rotating a point by an angle θ (in radians) around the origin is:
+Rotation Matrix:
 ```
+Rotation around Z-axis:
+
         [ cosθ -sinθ 0 ]
     R = [ sinθ cosθ  1 ]
         [ 0     0    1 ]
+
+Rotation around X-axis:
+
+        [ 1  0      0   ]
+    R = [ 0 cosα  -sinα ]
+        [ 0 sinα  cosα  ]
 ```
-Combining Translation and Rotation
-To apply both translation and rotation to a point, you can multiply the transformation matrices. If you want to rotate and then translate, you first apply the rotation and then the translation:
+
+In homogeneous coordinates, the full transformation matrix becomes:
 ```
-    P = T . R
+            [ cosθ -sinθcosα  sinθcosα  a.cosθ ]
+        T = [ sinθ  cosθcosα  -cosθsinα a.sinθ ]
+            [  0     sinα      cosα       d    ]
+            [  0       0        0         1    ]
 ```
  
 ### Denavit-Hartenberg Parameters
