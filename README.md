@@ -1,6 +1,16 @@
 # Robot-Arm
 
-## DH Table
+## Forward Kinematics
+Forward kinematics computes the position and orientation of the end effector given the joint parameters (angles or displacements). The Denavit-Hartenberg (DH) convention is often used to simplify the modeling of robotic arms.
+
+### Denavit-Hartenberg Parameters
+For each joint 𝑖, define the following parameters:
+- 𝜃𝑖 : Joint angle (rotation about the Z-axis)
+- 𝑑𝑖 : Link offset (translation along the Z-axis)
+- 𝑎𝑖 : Link length (translation along the X-axis)
+- 𝛼𝑖 : Link twist (rotation about the X-axis)
+
+### DH Table
 | Joint | theta  |    d   |    a   |  anpha |
 | ----- | ------ | ------ | ------ | ------ |
 |   1   |   θ1   |   d1   |   a1   |   α1   |
@@ -13,6 +23,9 @@
 `DH Parameter`s: Replace the d, a, and alpha vectors with your robot's actual parameters.
 
 `Matrix Operations`: This implementation uses basic matrix multiplication. For better performance, especially in robotics, consider using libraries like [Eigen](https://gitlab.com/libeigen/eigen) or kdl.
+
+## Inverse Kinematics
+Inverse kinematics computes the joint parameters that achieve a desired position and orientation of the end effector.
 
 ## Example
 
